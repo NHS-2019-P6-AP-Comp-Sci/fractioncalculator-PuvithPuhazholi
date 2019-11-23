@@ -13,7 +13,12 @@ public class FracCalc {
 		Scanner console = new Scanner(System.in);
 		System.out.println("Enter your expression: ");
 		String input = console.nextLine();
-		System.out.println(produceAnswer(input));
+		while (!input.equals("quit")) {
+			produceAnswer(input);
+			System.out.println("Enter your expression: ");
+			input = console.nextLine();
+		}
+
 	}
 
 	// ** IMPORTANT ** DO NOT DELETE THIS FUNCTION. This function will be used to
@@ -29,7 +34,14 @@ public class FracCalc {
 	// e.g. return ==> "1_1/4"
 	public static String produceAnswer(String input) {
 		// TODO: Implement this function to produce the solution to the input
-		String string = input;
+		String stringHold = "";
+		String stringHold1 = "";
+		String whole = "";
+		String whole1 = "";
+		String numerator = "";
+		String numerator1 = "";
+		String denominator = "";
+		String denominator1 = "";
 		int first = input.indexOf(" ");
 		String firstTerm = "";
 		int space = input.indexOf(" ") + 1;
@@ -45,7 +57,135 @@ public class FracCalc {
 		for (int j = 0; j < first; j++) {
 			firstTerm += String.valueOf(input.charAt(j));
 		}
-		return secondTerm;
+		int t = 0;
+		int z = 0;
+		int k = 0;
+		boolean v = false;
+		boolean g = false;
+		while (t < secondTerm.length()) {
+			if (String.valueOf(secondTerm.charAt(t)).equals("_")) {
+				v = true;
+				for (int d = 0; d < secondTerm.indexOf("_"); d++) {
+					whole += String.valueOf(secondTerm.charAt(d));
+				}
+
+				for (int h = t + 1; h < secondTerm.length(); h++) {
+					stringHold += String.valueOf(secondTerm.charAt(h));
+					t++;
+				}
+				while (z < stringHold.length()) {
+					if (String.valueOf(stringHold.charAt(z)).equals("/")) {
+						for (int e = 0; e < stringHold.indexOf("/"); e++) {
+							numerator +=  String.valueOf(stringHold.charAt(e));
+						}
+
+						for (int p = z + 1; p < stringHold.length(); p++) {
+							denominator +=  String.valueOf(stringHold.charAt(p));
+							z++;
+						}
+						
+					}
+					z++;
+				}
+				
+
+			} 
+			t++;
+		}
+		
+		if (v != true) {
+				while (k < secondTerm.length()) {
+					if (String.valueOf(secondTerm.charAt(k)).equals("/")) {
+						g = true;
+						whole = "0";
+						for (int a = 0; a < secondTerm.indexOf("/"); a++) {
+							numerator +=  String.valueOf(secondTerm.charAt(a));
+						}
+
+						for (int q = k + 1; q < secondTerm.length(); q++) {
+							denominator +=  String.valueOf(secondTerm.charAt(q));
+							k++;
+						}
+						
+						
+					} 
+					k++;
+				}
+				if (g != true) {
+						whole = secondTerm;
+						numerator = "0";
+						denominator = "1";
+					}
+					
+				
+				
+			}
+		int u = 0;
+		int l = 0;
+		int s = 0;
+		boolean f = false;
+		boolean m = false;
+		while (u < firstTerm.length()) {
+			if (String.valueOf(firstTerm.charAt(u)).equals("_")) {
+				f = true;
+				for (int y = 0; y < firstTerm.indexOf("_"); y++) {
+					whole1 += String.valueOf(firstTerm.charAt(y));
+				}
+
+				for (int n = u + 1; n < firstTerm.length(); n++) {
+					stringHold1 += String.valueOf(firstTerm.charAt(n));
+					u++;
+				}
+				while (l < stringHold1.length()) {
+					if (String.valueOf(stringHold1.charAt(l)).equals("/")) {
+						for (int r = 0; r < stringHold1.indexOf("/"); r++) {
+							numerator1 +=  String.valueOf(stringHold1.charAt(r));
+						}
+
+						for (int b = l + 1; b < stringHold1.length(); b++) {
+							denominator1 +=  String.valueOf(stringHold1.charAt(b));
+							l++;
+						}
+						
+					}
+					l++;
+				}
+				
+
+			} 
+			u++;
+		}
+		
+		if (f != true) {
+				while (s < firstTerm.length()) {
+					if (String.valueOf(firstTerm.charAt(s)).equals("/")) {
+						m = true;
+						whole1 = "0";
+						for (int o = 0; o < firstTerm.indexOf("/"); o++) {
+							numerator1 +=  String.valueOf(firstTerm.charAt(o));
+						}
+
+						for (int w = s + 1; w < firstTerm.length(); w++) {
+							denominator1 +=  String.valueOf(firstTerm.charAt(w));
+							s++;
+						}
+						
+						
+					} 
+					s++;
+				}
+				if (m != true) {
+						whole1 = firstTerm;
+						numerator1 = "0";
+						denominator1 = "1";
+					}
+					
+				
+				
+			}
+		String splitString2 = "whole:" + whole + " numerator:" + numerator + " denominator:" + denominator;
+		String splitString1 = "whole:" + whole1 + " numerator:" + numerator1 + " denominator:" + denominator1;
+		return splitString2;
 	}
 
 	// TODO: Fill in the space below with any helper methods that you think you will
