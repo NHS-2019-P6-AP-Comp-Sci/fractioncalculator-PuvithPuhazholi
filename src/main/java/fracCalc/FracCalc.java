@@ -193,6 +193,7 @@ public class FracCalc {
 		String commNumerator2 = "";
 		if (numerator1.equals("0")) {
 			simpOperator1 = whole1;
+			denominator1 = "1";
 		}
 		else if (whole1.equals("0")) {
 			simpOperator1 = numerator1;
@@ -206,6 +207,7 @@ public class FracCalc {
 		}
 		if (numerator.equals("0")) {
 			simpOperator2 = whole;
+			denominator = "1";
 		}
 		else if (whole.equals("0")) {
 			simpOperator2 = numerator;
@@ -224,8 +226,8 @@ public class FracCalc {
 			}
 			else {
 				commDenominator = String.valueOf(Integer.valueOf(denominator1) * Integer.valueOf(denominator));
-				commNumerator1 = String.valueOf(Integer.valueOf(numerator1) * Integer.valueOf(denominator));
-				commNumerator2 = String.valueOf(Integer.valueOf(numerator) * Integer.valueOf(denominator1));
+				commNumerator1 = String.valueOf(Integer.valueOf(simpOperator1) * Integer.valueOf(denominator));
+				commNumerator2 = String.valueOf(Integer.valueOf(simpOperator2) * Integer.valueOf(denominator1));
 				solution = String.valueOf(Integer.valueOf(commNumerator1) + Integer.valueOf(commNumerator2)) + "/" + commDenominator;
 
 			}
@@ -235,6 +237,7 @@ public class FracCalc {
 				solution = String.valueOf(Integer.valueOf(simpOperator1) - Integer.valueOf(simpOperator2)) + "/" + denominator;
 			 
 			}
+			
 			else {
 				commDenominator = String.valueOf(Integer.valueOf(denominator1) * Integer.valueOf(denominator));
 				commNumerator1 = String.valueOf(Integer.valueOf(numerator1) * Integer.valueOf(denominator));
@@ -260,7 +263,7 @@ public class FracCalc {
 		//int solution = simpOperator1  + simpOperator2;
 		
 		System.out.println(solution);
-		System.out.println(simpOperator2);
+		
 		return solution;
 	}
 
