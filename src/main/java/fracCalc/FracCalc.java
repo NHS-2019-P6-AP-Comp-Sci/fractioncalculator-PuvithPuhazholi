@@ -287,14 +287,14 @@ public class FracCalc {
 			solution = solution1 + "/" + solution2;
 
 		}
-		// Calculate highest common denominator
-		boolean h = true;
+		// Calculate highest common denominator for fraction reduction
+		boolean p = true;
 		int highcomden = 1;
 		if (Integer.valueOf(solution2) > 0) {
 			for (int x = Integer.valueOf(solution2); x > highcomden; x--) {
 				if ((Integer.valueOf(solution2) % x == 0) & (Integer.valueOf(solution1) % x == 0)) {
 					highcomden = x;
-					h = false;
+				p = false;
 				}
 			}
 		}
@@ -302,7 +302,7 @@ public class FracCalc {
 			for (int x = Integer.valueOf(solution2) * -1; x > highcomden; x--) {
 				if ((Integer.valueOf(solution2) % x == 0) & (Integer.valueOf(solution1) % x == 0)) {
 					highcomden = x;
-					h = false;
+					p = false;
 				}
 		}
 			}
